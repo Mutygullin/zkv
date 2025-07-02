@@ -20,16 +20,16 @@
 </head>
 <body class="overflow-x-hidden">
   <nav aria-label="Основное меню" class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-50 backdrop-blur-md">
-    <div class="max-w-6xl mx-auto px-6 py-4 flex flex-wrap justify-center lg:justify-end gap-4 text-sm text-white">
-      <a href="#about" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
-      <a href="#portfolio" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Портфолио</a>
-      <a href="#cooperation" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Условия сотрудничества</a>
-      <a href="#contacts" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Контакты</a>
-    </div>
-  </nav>
+  <div class="max-w-6xl mx-auto px-4 py-3 flex justify-center gap-2 whitespace-nowrap overflow-x-auto text-sm text-white">
+    <a href="#about" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
+    <a href="#portfolio" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Портфолио</a>
+    <a href="#cooperation" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
+    <a href="#contacts" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Контакты</a>
+  </div>
+</nav>
   <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 sm:pt-24">
     <div class="absolute top-0 left-0 w-full h-full z-0">
-      <video autoplay loop muted playsinline class="w-full h-full object-cover block" style="object-position: center center; aspect-ratio: 9/16;">
+      <video autoplay loop muted playsinline class="hidden md:block w-full h-full object-cover" style="object-position: center center;">
         <source src="https://kamila-zkv.my1.ru/img/background.mp4" type="video/mp4">
         Ваш браузер не поддерживает видео фон.
       </video>
@@ -45,35 +45,36 @@
       </div>
     </div>
   </section>
-  <section id="about" class="bg-[#060504] py-20 px-6">
-    <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-      <div class="w-full h-full flex items-start">
-        <img src="https://kamila-zkv.my1.ru/img/profile.jpg" alt="Камила" class="rounded-xl shadow-xl w-full h-full object-cover object-top max-h-[620px]">
-      </div>
-      <div class="text-left text-gray-300 space-y-6">
-        <div>
-          <h2 class="text-3xl font-bold mb-4 text-white">Обо мне</h2>
-          <p>
-            Привет! Я — Камила Закирова, профессиональная модель, которая превращает движение, свет и форму в выразительные визуальные образы. За годы работы я накопила богатый опыт в fashion-съёмках, beauty-проектах и рекламных кампаниях. Мне близка эстетика минимализма, чистоты кадра и эмоциональной глубины.
-          </p>
-        </div>
-        <div class="bg-white bg-opacity-5 p-6 rounded-lg">
-          <h3 class="text-white font-semibold text-lg mb-4">Параметры модели</h3>
-          <ul class="grid grid-cols-2 gap-2 text-sm">
-            <li><strong>Параметры:</strong> 83-62-97</li>
-            <li><strong>Вес:</strong> 55 кг</li>
-            <li><strong>Размер одежды:</strong> XS</li>
-            <li><strong>Размер обуви:</strong> 38</li>
-            <li><strong>Цвет глаз:</strong> Голубые</li>
-            <li><strong>Цвет волос:</strong> Русые (Airtouch)</li>
-          </ul>
-        </div>
+  <section id="about" class="bg-[#060504] py-16 px-4">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="w-full">
+      <img src="https://kamila-zkv.my1.ru/img/profile.jpg" alt="Камила" class="rounded-xl shadow-xl w-full object-cover object-top max-h-[420px]">
+    </div>
+    <div class="text-left text-gray-300 space-y-4">
+      <h2 class="text-3xl font-bold text-white">Обо мне</h2>
+      <p class="text-sm leading-relaxed">
+        Я — Камила Закирова, модель с опытом в fashion, beauty и коммерческих съёмках. Умею передавать образы, настроение и атмосферу через движение и взгляд. Люблю чистоту кадра и лёгкость на площадке.
+      </p>
+      <div class="bg-white bg-opacity-5 p-4 rounded-lg text-sm">
+        <h3 class="text-white font-semibold mb-2">Параметры модели</h3>
+        <ul class="grid grid-cols-2 gap-1">
+          <li><strong>Параметры:</strong> 83-62-97</li>
+          <li><strong>Вес:</strong> 55 кг</li>
+          <li><strong>Размер:</strong> XS</li>
+          <li><strong>Обувь:</strong> 38</li>
+          <li><strong>Глаза:</strong> Голубые</li>
+          <li><strong>Волосы:</strong> Русые (Airtouch)</li>
+        </ul>
       </div>
     </div>
-  </section>
+  </div>
+</section>
   <section id="portfolio" class="bg-black py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto">
+    <div class="flex overflow-x-auto gap-4 max-w-6xl mx-auto px-2 snap-x scroll-smooth sm:grid sm:grid-cols-3 sm:gap-6 sm:overflow-visible">
+  <style>
+    .snap-x::-webkit-scrollbar { display: none; }
+  </style>
       <a href="projects/project1.html" class="group block">
         <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" class="w-full h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
@@ -99,27 +100,24 @@
       </a>
     </div>
   </section>
-  <section id="cooperation" class="bg-[#0a0a0a] py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Условия сотрудничества</h2>
-    <div class="flex justify-center mb-8">
-      <img src="https://kamila-zkv.my1.ru/img/IMG_7342.jpg" alt="Камила" class="w-48 h-48 rounded-full object-cover shadow-md border-2 border-white">
-    </div>
-    <div class="max-w-3xl mx-auto text-gray-300 text-left space-y-6 text-base">
-      <p>💌 Немного про съёмки и как мы можем поработать вместе:</p>
-      <p>Мне всегда приятно быть частью новых творческих проектов и знакомиться с классными людьми. Чтобы наше взаимодействие прошло легко и комфортно, вот несколько моментов, которые важно обсудить заранее:</p>
-      <p><strong>📅 Бронирование даты:</strong><br>После финального согласования мы бронируем дату съёмки. Это гарантирует моё присутствие и даёт возможность спокойно готовиться к работе.</p>
-      <p><strong>📌 ТЗ и референсы:</strong><br>Чем чётче представление о съёмке, тем выше шанс получить классный результат. Поделитесь форматом, идеей, атмосферой, референсами. Уточните, будет ли команда (стилист, визажист), где и когда снимаем.</p>
-      <p><strong>💸 Оплата:</strong><br>Формат — почасовая ставка или фикс за проект — обсуждается индивидуально. Оплата производится после завершения съёмки.</p>
-      <p><strong>📲 Использование контента:</strong><br>Буду признательна, если заранее сообщите, где планируется размещение контента — соцсети, реклама, сайт и т.д. В случае коммерческого проекта — все условия обговариваются отдельно и прозрачно.</p>
-      <p><strong>🚗 Локации и выездные съёмки:</strong><br>Если съёмка проводится за пределами моего города, трансфер и проживание (при необходимости) обеспечивает организатор.</p>
-      <p><strong>💛 Атмосфера:</strong><br>Для меня важно, чтобы съёмка проходила в тёплой, уважительной и вдохновляющей обстановке. Юмор, лёгкость и креатив только приветствуются 😊</p>
-      <p>Если вы на одной волне — смело пишите по контактам ниже. Я всегда открыта к новым идеям, знакомствам и интересным проектам ✨</p>
-    </div>
-  </section>
+  <section id="cooperation" class="bg-[#0a0a0a] py-16 px-4 text-center">
+  <h2 class="text-3xl font-bold mb-6">Сотрудничество</h2>
+  <div class="flex justify-center mb-6">
+    <img src="https://kamila-zkv.my1.ru/img/IMG_7342.jpg" alt="Камила" class="w-32 h-32 rounded-full object-cover shadow-md border-2 border-white">
+  </div>
+  <div class="max-w-xl mx-auto text-gray-300 text-sm space-y-4 text-left">
+    <p>📅 Съёмку желательно бронировать заранее — так я точно буду свободна.</p>
+    <p>📌 Приветствуется чёткое ТЗ, референсы, информация о команде, месте и времени.</p>
+    <p>💸 Оплата — по договорённости, после съёмки.</p>
+    <p>📲 Расскажите, где планируете публиковать фото/видео. Если это реклама — обсудим условия.</p>
+    <p>🚗 Выезд — с учётом трансфера и (если нужно) проживания.</p>
+    <p>💛 На съёмке важна лёгкость, уважение и креатив!</p>
+  </div>
+</section>
   <section id="contacts" class="bg-black py-20 px-6 text-center">
   <div class="max-w-3xl mx-auto text-center">
     <h2 class="text-4xl font-bold text-white mb-10">Связаться со мной</h2>
-    <p class="text-gray-400 mb-12 text-lg">Вы можете написать мне напрямую в удобном для вас мессенджере:</p>
+    <p class="text-gray-400 mb-12 text-lg">Выберите удобный способ связи:</p>
     <div class="flex flex-col sm:flex-row justify-center gap-6 text-white text-base">
       <a href="https://t.me/kamila_zkv" target="_blank" class="flex items-center gap-3 bg-[#229ED9] hover:bg-[#1c89bf] transition px-6 py-3 rounded-full">
         <i class="fab fa-telegram-plane text-xl"></i>
