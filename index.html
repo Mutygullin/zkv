@@ -26,8 +26,8 @@
       ☰
     </button>
   </div>
-  <div id="menu" class="hidden flex-col gap-2 px-4 pb-4 text-sm text-white opacity-0 scale-95 transition-all duration-300 ease-in-out sm:flex sm:flex-row sm:justify-center items-center sm:items-center">
-    <a href="#about" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
+  <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:flex sm:flex-row sm:justify-center sm:items-center">
+    <a href="#about" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
     <a href="#portfolio" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Портфолио</a>
     <a href="#cooperation" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
     <a href="#contacts" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Контакты</a>
@@ -159,18 +159,13 @@
     }, 600);
   }
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        animateHintScroll();
-        observer.disconnect();
-      }
-    });
-  }, {
-    threshold: 0.5
+  carousel.addEventListener('mouseenter', () => {
+    const start = carousel.scrollLeft;
+    carousel.scrollBy({ left: 100, behavior: 'smooth' });
+    setTimeout(() => {
+      carousel.scrollTo({ left: start, behavior: 'smooth' });
+    }, 1200);
   });
-
-  observer.observe(document.getElementById('portfolio'));
 </script>
 </section>
 </script>
