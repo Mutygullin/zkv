@@ -16,6 +16,19 @@
     }
   
     @media (max-height: 500px) and (orientation: landscape) {
+      #portfolio .snap-x {
+        scroll-snap-type: none !important;
+      }
+      #portfolio .flex {
+  flex-wrap: wrap !important;
+  overflow-x: visible !important;
+  justify-content: center;
+  gap: 1rem;
+}
+#portfolio .group {
+  flex: 0 1 calc(33.333% - 1rem);
+  margin-bottom: 1rem;
+}
       body {
         font-size: 0.9rem;
       }
@@ -126,7 +139,7 @@
     <div class="flex flex-nowrap sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative space-x-4 md:space-x-6 xl:gap-6" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 2rem; scroll-behavior: smooth;">
       <style>.snap-x::-webkit-scrollbar { display: none; }</style>
       <a href="projects/project1.html" class="group block flex-shrink-0 w-80 snap-center">
-        <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project2.html" class="group block flex-shrink-0 w-80 snap-center">
         <img src="https://kamila-zkv.my1.ru/img/2.jpg" alt="Портфолио 2" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
@@ -234,7 +247,9 @@
       }, 1200);
     }
 
-    carousel.addEventListener('mouseenter', animateHintScroll);
+    if (window.innerHeight > window.innerWidth) {
+      carousel.addEventListener('mouseenter', animateHintScroll);
+    }
 
     window.addEventListener('load', () => {
       const observer = new IntersectionObserver(entries => {
@@ -246,7 +261,7 @@
       }, { threshold: 0.5 });
 
       const portfolioSection = document.getElementById('portfolio');
-      if (portfolioSection) observer.observe(portfolioSection);
+      if (portfolioSection && window.innerHeight > window.innerWidth) observer.observe(portfolioSection);
     });
 
     
