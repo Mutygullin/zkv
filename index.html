@@ -14,6 +14,40 @@
       background-color: #060504;
       color: white;
     }
+  
+    @media (max-height: 500px) and (orientation: landscape) {
+      body {
+        font-size: 0.9rem;
+      }
+      section {
+        padding: 2rem 1rem;
+      }
+      #about .text-left,
+      #cooperation .text-left,
+      #contacts .text-center {
+        text-align: left !important;
+      }
+      #portfolio .flex {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        gap: 1rem;
+      }
+      #portfolio .group {
+        flex: 0 0 auto;
+      }
+      #portfolio img {
+        height: 50vh !important;
+        max-height: 320px;
+      }
+      #cooperation .max-w-xl,
+      #contacts .max-w-3xl {
+        padding: 1rem;
+      }
+      #contacts .flex {
+        flex-direction: column;
+        gap: 1rem;
+      }
+    }
   </style>
 </head>
 <body class="overflow-x-hidden">
@@ -51,6 +85,19 @@
     </div>
   </section>
   <section id="about" class="bg-[#060504] py-16 px-4">
+  <style>
+    @media (max-height: 500px) and (orientation: landscape) {
+      #about .max-w-5xl {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1.5rem;
+      }
+      #about img {
+        max-height: 300px !important;
+      }
+    }
+  </style>
     <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
       <div class="w-full">
         <img src="https://kamila-zkv.my1.ru/img/profile.jpg" alt="Камила" class="rounded-xl shadow-xl w-full h-auto max-h-[420px] object-cover object-top sm:max-h-[520px]">
@@ -76,25 +123,25 @@
   </section>
   <section id="portfolio" class="bg-black py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-    <div class="flex flex-nowrap sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 2rem; scroll-behavior: smooth;">
+    <div class="flex flex-nowrap sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative space-x-4 md:space-x-6 xl:gap-6" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 2rem; scroll-behavior: smooth;">
       <style>.snap-x::-webkit-scrollbar { display: none; }</style>
-      <a href="projects/project1.html" class="group block flex-shrink-0 w-72 snap-center sm:w-80">
-        <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" class="w-full h-[60vh] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+      <a href="projects/project1.html" class="group block flex-shrink-0 w-80 snap-center">
+        <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project2.html" class="group block flex-shrink-0 w-80 snap-center">
-        <img src="https://kamila-zkv.my1.ru/img/2.jpg" alt="Портфолио 2" class="w-full h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <img src="https://kamila-zkv.my1.ru/img/2.jpg" alt="Портфолио 2" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project3.html" class="group block flex-shrink-0 w-80 snap-center">
-        <img src="https://kamila-zkv.my1.ru/img/3.jpg" alt="Портфолио 3" class="w-full h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <img src="https://kamila-zkv.my1.ru/img/3.jpg" alt="Портфолио 3" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project4.html" class="group block flex-shrink-0 w-80 snap-center">
-        <img src="https://kamila-zkv.my1.ru/img/4.jpg" alt="Портфолио 4" class="w-full h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <img src="https://kamila-zkv.my1.ru/img/4.jpg" alt="Портфолио 4" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project5.html" class="group block flex-shrink-0 w-80 snap-center">
-        <img src="https://kamila-zkv.my1.ru/img/5.jpg" alt="Портфолио 5" class="w-full h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <img src="https://kamila-zkv.my1.ru/img/5.jpg" alt="Портфолио 5" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project6.html" class="group block flex-shrink-0 w-80 snap-center">
-        <img src="https://kamila-zkv.my1.ru/img/6.jpg" alt="Портфолио 6" class="w-full h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+        <img src="https://kamila-zkv.my1.ru/img/6.jpg" alt="Портфолио 6" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
     </div>
     <div class="mt-12 text-center">
