@@ -65,7 +65,7 @@
       </div>
       <button id="burger" class="text-white text-2xl sm:hidden">☰</button>
     </div>
-    <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:hidden">
+    <div id="menu" class="hidden flex flex-col items-start gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:hidden">
       <a href="#about" class="w-full text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
       <a href="#portfolio" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition" onclick="animateHintScroll()">Портфолио</a>
       <a href="#cooperation" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
@@ -93,7 +93,7 @@
 <section id="about" class="bg-[#060504] py-16 px-4">
   <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
     <div class="w-full">
-      <img src="https://kamila-zkv.my1.ru/img/profile.jpg" alt="Камила" class="rounded-xl shadow-xl w-full h-auto max-h-[420px] object-cover object-top sm:max-h-[520px]">
+      <img src="https://kamila-zkv.my1.ru/img/profile.jpg" alt="Камила" class="rounded-xl shadow-xl w-full h-auto max-h-[420px] object-cover object-top sm:max-h-[520px] md:max-w-[420px] mx-auto">
     </div>
     <div class="text-left text-gray-300 space-y-4">
       <h2 class="text-3xl font-bold text-white">Обо мне</h2>
@@ -118,7 +118,7 @@
 <!-- Секция: Портфолио -->
 <section id="portfolio" class="bg-black py-20 px-6 text-center">
   <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-  <div class="flex flex-wrap sm:grid sm:grid-cols-3 gap-4 max-w-6xl mx-auto px-4 relative">
+  <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 max-w-6xl mx-auto px-4">
     <a href="projects/project1.html" class="group block flex-shrink-0 w-80 snap-center">
       <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
     </a>
@@ -164,7 +164,7 @@
   <div class="max-w-3xl mx-auto text-center">
     <h2 class="text-4xl font-bold text-white mb-10">Связаться со мной</h2>
     <p class="text-gray-400 mb-12 text-lg">Вы можете написать мне напрямую в удобном для вас мессенджере:</p>
-    <div class="flex flex-col sm:flex-row justify-center gap-6 text-white text-base">
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-4 text-white text-sm">
       <a href="https://t.me/kamila_zkv" target="_blank" class="flex items-center gap-3 bg-[#229ED9] hover:bg-[#1c89bf] transition px-6 py-3 rounded-full">
         <i class="fab fa-telegram-plane text-xl"></i>
         Telegram
