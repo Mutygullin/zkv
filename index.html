@@ -27,7 +27,7 @@
       </div>
       <button id="burger" class="text-white text-2xl sm:hidden">☰</button>
     </div>
-    <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:flex sm:flex-row sm:justify-center sm:items-center w-full sm:w-auto">
+    <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:!hidden">
       <a href="#about" class="w-full text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
       <a href="#portfolio" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition" onclick="animateHintScroll()">Портфолио</a>
       <a href="#cooperation" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
@@ -76,9 +76,9 @@
   </section>
   <section id="portfolio" class="bg-black py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-    <div class="flex sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 2rem; scroll-behavior: smooth;">
+    <div class="flex flex-nowrap sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 2rem; scroll-behavior: smooth;">
       <style>.snap-x::-webkit-scrollbar { display: none; }</style>
-      <a href="projects/project1.html" class="group block flex-shrink-0 w-80 snap-center">
+      <a href="projects/project1.html" class="group block flex-shrink-0 w-72 snap-center sm:w-80">
         <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" class="w-full h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
       </a>
       <a href="projects/project2.html" class="group block flex-shrink-0 w-80 snap-center">
