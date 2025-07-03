@@ -26,7 +26,7 @@
       ☰
     </button>
   </div>
-  <div id="menu" class="hidden sm:flex sm:flex-row sm:justify-center gap-2 px-4 pb-4 text-sm text-white transition-all duration-300 ease-in-out">
+  <div id="menu" class="hidden flex-col items-center gap-4 px-4 pb-4 text-sm text-white opacity-0 scale-95 transition-all duration-300 ease-in-out sm:flex sm:flex-row sm:justify-center">
     <a href="#about" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
     <a href="#portfolio" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Портфолио</a>
     <a href="#cooperation" class="border border-white px-3 py-1.5 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
@@ -94,9 +94,9 @@
     </div>
   </div>
 </section>
-  <section id="portfolio" class="bg-black py-20 px-6 text-center">
-    <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-    <div class="flex sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 1rem;">
+  
+    <p class="text-sm text-gray-400 mb-6">Прокручивайте влево или вправо, чтобы увидеть больше фото.</p>
+    <div class="flex sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative" style="-webkit-overflow-scrolling: touch; scroll-snap-type: x mandatory; padding-bottom: 1rem; scroll-behavior: smooth;">
   <style>
     .snap-x::-webkit-scrollbar { display: none; }
   </style>
@@ -124,8 +124,26 @@
         Смотреть все проекты
       </a>
     </div>
-  </section>
-  <section id="cooperation" class="bg-[#0a0a0a] py-16 px-4 text-center">
+  <script>
+  const carousel = document.querySelector('#portfolio .flex');
+  let scrollInterval;
+  function startLoop() {
+    scrollInterval = setInterval(() => {
+      carousel.scrollBy({ left: 1, behavior: 'smooth' });
+      if (carousel.scrollLeft + carousel.clientWidth >= carousel.scrollWidth - 1) {
+        carousel.scrollTo({ left: 0, behavior: 'smooth' });
+      }
+    }, 50);
+  }
+  function stopLoop() {
+    clearInterval(scrollInterval);
+  }
+  carousel.addEventListener('mouseenter', stopLoop);
+  carousel.addEventListener('mouseleave', startLoop);
+  startLoop();
+</script>
+</section>
+<section id="cooperation" class="bg-[#0a0a0a] py-16 px-4 text-center">
   <h2 class="text-3xl font-bold mb-6">Сотрудничество</h2>
   <div class="flex justify-center mb-6">
     <img src="https://kamila-zkv.my1.ru/img/IMG_7342.jpg" alt="Камила" class="w-32 h-32 rounded-full object-cover shadow-md border-2 border-white">
