@@ -236,14 +236,7 @@
 
     carousel.addEventListener('mouseenter', animateHintScroll);
 
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          animateHintScroll();
-        }
-      });
-    }, { threshold: 0.5 });
-    observer.observe(document.getElementById('portfolio'));
+    
   </script>
 </body>
 </html>
