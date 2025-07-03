@@ -26,9 +26,9 @@
       ☰
     </button>
   </div>
-  <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:flex sm:flex-row sm:justify-center sm:items-center">
-    <a href="#about" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
-    <a href="#portfolio" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Портфолио</a>
+  <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:flex sm:flex-row sm:justify-center sm:items-center w-full sm:w-auto">
+    <a href="#about" class="w-full text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
+    <a href="#portfolio" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition" onclick="animateHintScroll()">Портфолио</a>
     <a href="#cooperation" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
     <a href="#contacts" class="w-full sm:w-auto text-center border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Контакты</a>
   </div>
@@ -159,9 +159,30 @@
     }, 600);
   }
 
-  carousel.addEventListener('mouseenter', () => {
+  function animateHintScroll() {
+    if (!carousel) return;
     const start = carousel.scrollLeft;
-    carousel.scrollBy({ left: 100, behavior: 'smooth' });
+    carousel.scrollBy({ left: 80, behavior: 'smooth' });
+    setTimeout(() => {
+      carousel.scrollTo({ left: start, behavior: 'smooth' });
+    }, 1200);
+  }
+
+  carousel.addEventListener('mouseenter', animateHintScroll);
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        animateHintScroll();
+      }
+    });
+  }, { threshold: 0.5 });
+  observer.observe(document.getElementById('portfolio'));
+  
+    setTimeout(() => {
+      carousel.scrollTo({ left: start, behavior: 'smooth' });
+    }, 1200);
+  });
     setTimeout(() => {
       carousel.scrollTo({ left: start, behavior: 'smooth' });
     }, 1200);
