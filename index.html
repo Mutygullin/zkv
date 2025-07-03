@@ -55,8 +55,138 @@
   </style>
 </head>
 <body class="overflow-x-hidden">
-  <!-- остальной HTML остаётся без изменений -->
-  <script>
+  <nav aria-label="Основное меню" class="fixed top-0 left-0 w-full z-50 bg-black bg-opacity-30 backdrop-blur h-14">
+    <div class="max-w-6xl mx-auto px-4 h-full flex items-center justify-between sm:justify-center">
+      <div class="hidden sm:flex gap-2 text-sm text-white">
+        <a href="#about" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
+        <a href="#portfolio" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition" onclick="animateHintScroll()">Портфолио</a>
+        <a href="#cooperation" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
+        <a href="#contacts" class="border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Контакты</a>
+      </div>
+      <button id="burger" class="text-white text-2xl sm:hidden">☰</button>
+    </div>
+    <div id="menu" class="hidden flex-col gap-2 px-6 pb-4 text-sm text-white text-left opacity-0 scale-95 transition-all duration-300 ease-in-out sm:hidden">
+      <a href="#about" class="w-full text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Обо мне</a>
+      <a href="#portfolio" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition" onclick="animateHintScroll()">Портфолио</a>
+      <a href="#cooperation" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Сотрудничество</a>
+      <a href="#contacts" class="w-full sm:w-auto text-left border border-white px-4 py-2 rounded-full hover:bg-white hover:text-black transition">Контакты</a>
+    </div>
+  </nav>
+  <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 sm:pt-24">
+    <div class="absolute top-0 left-0 w-full h-full z-0">
+      <video autoplay loop muted playsinline class="hidden sm:block w-full h-full object-cover" style="object-position: center center;">
+        <source src="https://kamila-zkv.my1.ru/img/background.mp4" type="video/mp4">
+      </video>
+    </div>
+    <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
+    <div class="relative z-20 max-w-6xl mx-auto flex flex-col items-center gap-10 px-4 sm:px-6 py-16 text-white text-center">
+      <div class="flex-1 text-center lg:text-left">
+        <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Камила Закирова</h1>
+        <p class="text-sm sm:text-base text-gray-300 mb-6 max-w-md mx-auto">
+          Профессиональная фотомодель. Эстетика. Стиль. Эмоции.
+        </p>
+      </div>
+    </div>
+  </section>
+
+<!-- Секция: Обо мне -->
+<section id="about" class="bg-[#060504] py-16 px-4">
+  <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+    <div class="w-full">
+      <img src="https://kamila-zkv.my1.ru/img/profile.jpg" alt="Камила" class="rounded-xl shadow-xl w-full h-auto max-h-[420px] object-cover object-top sm:max-h-[520px]">
+    </div>
+    <div class="text-left text-gray-300 space-y-4">
+      <h2 class="text-3xl font-bold text-white">Обо мне</h2>
+      <p class="text-sm leading-relaxed">
+        Я — Камила Закирова, модель с опытом в fashion, beauty и коммерческих съёмках. Умею передавать образы, настроение и атмосферу через движение и взгляд. Люблю чистоту кадра и лёгкость на площадке.
+      </p>
+      <div class="bg-white bg-opacity-5 p-4 rounded-lg text-sm">
+        <h3 class="text-white font-semibold mb-2">Параметры модели</h3>
+        <ul class="grid grid-cols-2 gap-1">
+          <li><strong>Параметры:</strong> 83-62-97</li>
+          <li><strong>Вес:</strong> 55 кг</li>
+          <li><strong>Размер:</strong> XS</li>
+          <li><strong>Обувь:</strong> 38</li>
+          <li><strong>Глаза:</strong> Голубые</li>
+          <li><strong>Волосы:</strong> Русые (Airtouch)</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Секция: Портфолио -->
+<section id="portfolio" class="bg-black py-20 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
+  <div class="flex flex-nowrap sm:grid sm:grid-cols-3 overflow-x-auto sm:overflow-visible gap-4 max-w-6xl mx-auto px-4 snap-x scroll-smooth scroll-px-4 relative space-x-4 md:space-x-6 xl:gap-6">
+    <a href="projects/project1.html" class="group block flex-shrink-0 w-80 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/1.jpg" alt="Портфолио 1" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="projects/project2.html" class="group block flex-shrink-0 w-80 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/2.jpg" alt="Портфолио 2" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="projects/project3.html" class="group block flex-shrink-0 w-80 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/3.jpg" alt="Портфолио 3" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="projects/project4.html" class="group block flex-shrink-0 w-80 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/4.jpg" alt="Портфолио 4" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="projects/project5.html" class="group block flex-shrink-0 w-80 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/5.jpg" alt="Портфолио 5" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="projects/project6.html" class="group block flex-shrink-0 w-80 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/6.jpg" alt="Портфолио 6" loading="lazy" class="w-full h-[60vh] sm:h-[440px] md:h-[420px] lg:h-[480px] object-cover object-bottom rounded-lg shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+  </div>
+  <div class="mt-12 text-center">
+    <a href="projects/all-projects.html" class="inline-block border border-white px-6 py-3 rounded-full text-white hover:bg-white hover:text-black transition">Смотреть все проекты</a>
+  </div>
+</section>
+
+<!-- Секция: Сотрудничество -->
+<section id="cooperation" class="bg-[#0a0a0a] py-16 px-4 text-center">
+  <h2 class="text-3xl font-bold mb-6">Сотрудничество</h2>
+  <div class="flex justify-center mb-6">
+    <img src="https://kamila-zkv.my1.ru/img/IMG_7342.jpg" alt="Камила" class="w-32 h-32 rounded-full object-cover shadow-md border-2 border-white">
+  </div>
+  <div class="max-w-xl mx-auto text-gray-300 text-sm space-y-4 text-left">
+    <p>📅 Съёмку желательно бронировать заранее — так я точно буду свободна.</p>
+    <p>📌 Приветствуется чёткое ТЗ, референсы, информация о команде, месте и времени.</p>
+    <p>💸 Оплата — по договорённости, после съёмки.</p>
+    <p>📲 Расскажите, где планируете публиковать фото/видео. Если это реклама — обсудим условия.</p>
+    <p>🚗 Выезд — с учётом трансфера и (если нужно) проживания.</p>
+    <p>💛 На съёмке важна лёгкость, уважение и креатив!</p>
+  </div>
+</section>
+
+<!-- Секция: Контакты -->
+<section id="contacts" class="bg-black py-20 px-6 text-center">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-4xl font-bold text-white mb-10">Связаться со мной</h2>
+    <p class="text-gray-400 mb-12 text-lg">Вы можете написать мне напрямую в удобном для вас мессенджере:</p>
+    <div class="flex flex-col sm:flex-row justify-center gap-6 text-white text-base">
+      <a href="https://t.me/kamila_zkv" target="_blank" class="flex items-center gap-3 bg-[#229ED9] hover:bg-[#1c89bf] transition px-6 py-3 rounded-full">
+        <i class="fab fa-telegram-plane text-xl"></i>
+        Telegram
+      </a>
+      <a href="https://wa.me/79961066754" target="_blank" class="flex items-center gap-3 bg-[#25D366] hover:bg-[#1da851] transition px-6 py-3 rounded-full">
+        <i class="fab fa-whatsapp text-xl"></i>
+        WhatsApp
+      </a>
+      <a href="https://instagram.com/kamila_zkv" target="_blank" class="flex items-center gap-3 bg-gradient-to-r from-pink-500 to-yellow-500 hover:brightness-110 transition px-6 py-3 rounded-full">
+        <i class="fab fa-instagram text-xl"></i>
+        Instagram
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Подвал -->
+<footer class="bg-black py-6 text-center text-gray-500 text-sm">
+  <p>© Камила Закирова, 2025. Все права защищены.</p>
+</footer>
+
+<script>
     const burger = document.getElementById('burger');
     const menu = document.getElementById('menu');
     burger.addEventListener('click', () => {
