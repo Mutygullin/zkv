@@ -5,7 +5,68 @@
   <link rel="icon" href="https://kamila-zkv.my1.ru/img/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Камила Закирова — фотомодель</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">  // Анимация-подсказка при переходе в раздел портфолио
+  const portfolioWrapper = document.getElementById('portfolio-wrapper');
+  const portfolioSection = document.getElementById('portfolio');
+
+  function triggerSwipeHint() {
+    if (window.innerWidth < 768 && portfolioWrapper) {
+      portfolioWrapper.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 100, behavior: 'smooth' });
+      }, 300);
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 1400);
+    }
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        triggerSwipeHint();
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  if (portfolioSection) {
+    observer.observe(portfolioSection);
+  }
+
+  document.querySelectorAll('a[href="#portfolio"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => triggerSwipeHint(), 800);
+    });
+  });
+  // Анимация-подсказка в разделе Портфолио на мобильной версии
+  const portfolioWrapper = document.getElementById('portfolio-wrapper');
+  const portfolioSection = document.getElementById('portfolio');
+
+  function triggerSwipeHint() {
+    if (window.innerWidth < 768 && portfolioWrapper) {
+      portfolioWrapper.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 120, behavior: 'smooth' });
+      }, 500);
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 2000);
+    }
+  }
+
+  if (portfolioSection) {
+    portfolioSection.addEventListener('mouseenter', triggerSwipeHint);
+    portfolioSection.addEventListener('touchstart', triggerSwipeHint);
+  }
+
+  document.querySelectorAll('a[href="#portfolio"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => triggerSwipeHint(), 800);
+    });
+  });
+</script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
@@ -21,15 +82,6 @@
     overflow-x: auto;
     scroll-snap-type: x mandatory;
   }
-  #portfolio-wrapper a {
-    flex: 0 0 92%;
-    scroll-snap-align: start;
-  }
-  #portfolio-wrapper img {
-    height: 75vh;
-    transform: scale(1);
-  }
-}
   #portfolio-wrapper a {
     flex: 0 0 92%;
     scroll-snap-align: start;
@@ -130,7 +182,7 @@
   </button>
 </div>
   </nav>
-  <div id="mobile-menu" class="md:hidden hidden flex-col bg-gray-800 bg-opacity-90 rounded-md mt-2 text-white p-2 space-y-2 text-left absolute top-16 left-4 w-44 z-40">
+  <div id="mobile-menu" class="md:hidden hidden flex-col bg-gray-800 bg-opacity-90 rounded-md mt-2 text-white p-2 space-y-2 text-left absolute top-16 left-4 w-44 z-40""">
     <a href="#about" class="block hover:text-gray-300">Обо мне</a>
     <a href="#portfolio" class="block hover:text-gray-300">Портфолио</a>
     <a href="#cooperation" class="block hover:text-gray-300">Сотрудничество</a>
@@ -181,9 +233,9 @@
   </div>
 </section>
 
-<section id="portfolio" class="bg-black py-20 px-6 text-center" aria-label="Раздел с фотографиями портфолио">
+<section id="portfolio" class="bg-black py-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-  <div id="portfolio-wrapper" class="flex overflow-x-auto md:grid md:grid-cols-3 md:overflow-visible md:gap-8 gap-6 max-w-6xl mx-auto px-4">
+  <div id="portfolio-wrapper" class="flex overflow-x-auto md:grid md:grid-cols-3 md:overflow-visible gap-6 max-w-6xl mx-auto px-4">
     <a href="#" class="group block flex-shrink-0 w-96 snap-center">
       <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio1.webp" alt="Портфолио 1" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
     </a>
@@ -270,12 +322,14 @@ document.addEventListener('DOMContentLoaded', function () {
       menu.classList.toggle('hidden');
     });
 
+    // Закрывать меню при нажатии на ссылку
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.add('hidden');
       });
     });
 
+    // Закрывать меню при скролле
     let lastScrollTop = 0;
     window.addEventListener('scroll', function () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -285,7 +339,7 @@ document.addEventListener('DOMContentLoaded', function () {
       }
     });
   }
-
+});
   // Анимация-подсказка в разделе Портфолио для мобильной версии
   const portfolioWrapper = document.getElementById('portfolio-wrapper');
   const portfolioSection = document.getElementById('portfolio');
@@ -294,11 +348,11 @@ document.addEventListener('DOMContentLoaded', function () {
     if (window.innerWidth < 768 && portfolioWrapper) {
       portfolioWrapper.scrollTo({ left: 0, behavior: 'auto' });
       setTimeout(() => {
-        portfolioWrapper.scrollTo({ left: 100, behavior: 'smooth' });
+        portfolioWrapper.scrollTo({ left: 120, behavior: 'smooth' });
       }, 500);
       setTimeout(() => {
         portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
-      }, 1800);
+      }, 2000);
     }
   }
 
@@ -312,7 +366,33 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(() => triggerSwipeHint(), 1000);
     });
   });
-});
+
+  // Обновлённая анимация-подсказка для раздела Портфолио
+  function triggerSwipeHint() {
+    const wrapper = document.getElementById('portfolio-wrapper');
+    if (window.innerWidth < 768 && wrapper) {
+      wrapper.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        wrapper.scrollTo({ left: 120, behavior: 'smooth' });
+      }, 700);
+      setTimeout(() => {
+        wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 2500);
+    }
+  }
+
+  const portfolioSection = document.getElementById('portfolio');
+
+  if (portfolioSection) {
+    portfolioSection.addEventListener('mouseenter', triggerSwipeHint);
+    portfolioSection.addEventListener('touchstart', triggerSwipeHint);
+  }
+
+  document.querySelectorAll('a[href="#portfolio"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => triggerSwipeHint(), 1000);
+    });
+  });
 </script>
 </body>
 </html>
