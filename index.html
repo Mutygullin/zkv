@@ -29,7 +29,7 @@
       }
     }
     @media (max-width: 1024px) and (orientation: landscape) {
-  header ul { display: flex !important; }
+  header ul { display: flex !important; justify-content: center; width: 100%; }
   #menu-toggle, #mobile-menu { display: none !important; }
 }
 
@@ -89,7 +89,7 @@
       </button>
     </div>
   </nav>
-  <div id="mobile-menu" class="md:hidden hidden flex-col bg-black bg-opacity-90 rounded-md mt-2 text-white p-4 space-y-4 text-left absolute top-16 left-4 w-56 z-40">
+  <div id="mobile-menu" class="md:hidden hidden flex-col bg-black bg-opacity-90 rounded-md mt-2 text-white p-4 space-y-4 text-left absolute top-16 left-4 w-fit z-40">
     <a href="#about" class="block hover:text-gray-300">Обо мне</a>
     <a href="#portfolio" class="block hover:text-gray-300">Портфолио</a>
     <a href="#cooperation" class="block hover:text-gray-300">Сотрудничество</a>
@@ -176,7 +176,7 @@
     <img src="https://kamila-zkv.my1.ru/img/background.webp" alt="Камила" class="block sm:hidden w-full h-full object-cover" onerror="this.style.display='none'" />
   </div>
   <div class="absolute inset-0 bg-black bg-opacity-60 z-10"></div>
-  <div class="relative z-20 max-w-6xl mx-auto flex flex-col items-center gap-10 px-4 sm:px-6 py-16 text-white text-center justify-center min-h-[50vh]">
+  <div class="relative z-20 max-w-6xl mx-auto flex flex-col items-center gap-10 px-4 sm:px-6 pt-6 sm:pt-16 text-white text-center justify-center min-h-[50vh]" style="margin-top: -40px;" >
     <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight mb-4 leading-tight">Камила Закирова</h1>
     <p class="text-sm sm:text-base text-gray-300 max-w-md">Профессиональная фотомодель. Эстетика. Стиль. Эмоции.</p>
   </div>
