@@ -92,6 +92,7 @@
   }
 }
 }
+}
   #portfolio .flex {
     flex-wrap: nowrap;
   }
@@ -123,39 +124,20 @@
 }
 
 @media (max-height: 500px) and (orientation: landscape) {
-      #portfolio .snap-x {
-        scroll-snap-type: none !important;
-      }
-      #portfolio .flex {
-        flex-wrap: wrap !important;
-        overflow-x: visible !important;
-        justify-content: center;
-        gap: 1rem;
-      }
-      #portfolio .group {
-        flex: 0 1 calc(33.333% - 1rem);
-        margin-bottom: 1rem;
-      }
-      body {
-        font-size: 0.9rem;
-      }
-      section {
-        padding: 2rem 1rem;
-      }
-      #about .text-left,
-      #cooperation .text-left,
-      #contacts .text-center {
-        text-align: left !important;
-      }
-      #portfolio-wrapper {
-  display: grid !important;
-  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
-  gap: 1rem;
+  #portfolio-wrapper {
+    display: grid !important;
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 1rem;
+    overflow-x: visible !important;
+  }
+  #portfolio-wrapper a {
+    flex: unset !important;
+  }
+  #portfolio-wrapper img {
+    height: auto !important;
+    max-height: 90vh;
+  }
 }
-#portfolio-wrapper img {
-  height: 125vh !important;
-  max-height: none;
-      }
       #cooperation .max-w-xl,
       #contacts .max-w-3xl {
         padding: 1rem;
@@ -233,9 +215,9 @@
   </div>
 </section>
 
-<section id="portfolio" class="bg-black py-20 px-6 text-center">
+<section id="portfolio" class="bg-black pt-16 pb-20 px-6 text-center">
     <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
-  <div id="portfolio-wrapper" class="flex overflow-x-auto md:grid md:grid-cols-3 md:overflow-visible gap-6 max-w-6xl mx-auto px-4">
+  <div id="portfolio-wrapper" class="flex overflow-x-auto md:grid md:grid-cols-3 md:overflow-visible gap-x-6 gap-y-10 max-w-6xl mx-auto px-4">
     <a href="#" class="group block flex-shrink-0 w-96 snap-center">
       <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio1.webp" alt="Портфолио 1" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
     </a>
