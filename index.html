@@ -28,7 +28,12 @@
         scroll-snap-align: start;
       }
     }
-    @media (max-height: 500px) and (orientation: landscape) {
+    @media (max-width: 1024px) and (orientation: landscape) {
+  header ul { display: flex !important; }
+  #menu-toggle, #mobile-menu { display: none !important; }
+}
+
+@media (max-height: 500px) and (orientation: landscape) {
       #portfolio .snap-x {
         scroll-snap-type: none !important;
       }
@@ -84,7 +89,7 @@
       </button>
     </div>
   </nav>
-  <div id="mobile-menu" class="md:hidden hidden flex-col bg-black bg-opacity-90 max-w-xs rounded-md mx-4 mt-2 text-white p-4 space-y-4 text-left fixed top-16 left-0 w-full z-40">
+  <div id="mobile-menu" class="md:hidden hidden flex-col bg-black bg-opacity-90 rounded-md mt-2 text-white p-4 space-y-4 text-left absolute top-16 left-4 w-56 z-40">
     <a href="#about" class="block hover:text-gray-300">Обо мне</a>
     <a href="#portfolio" class="block hover:text-gray-300">Портфолио</a>
     <a href="#cooperation" class="block hover:text-gray-300">Сотрудничество</a>
@@ -92,6 +97,48 @@
   </div>
   <script>
   document.addEventListener('DOMContentLoaded', function () {
+    const portfolioSection = document.querySelector('#portfolio');
+    const portfolio = document.querySelector('#portfolio .flex');
+    const links = document.querySelectorAll('a[href="#portfolio"]');
+    links.forEach(link => link.addEventListener('click', () => {
+      setTimeout(() => {
+        if (window.innerWidth < 768 && portfolio) {
+          portfolio.scrollTo({ left: 80, behavior: 'smooth' });
+          setTimeout(() => {
+            portfolio.scrollTo({ left: 0, behavior: 'smooth' });
+          }, 1000);
+        }
+      }, 600);
+    }));
+
+    if (window.innerWidth < 768 && portfolioSection && portfolio) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              portfolio.scrollTo({ left: 60, behavior: 'smooth' });
+              setTimeout(() => {
+                portfolio.scrollTo({ left: 0, behavior: 'smooth' });
+              }, 1000);
+            }
+          });
+        },
+        {
+          root: null,
+          threshold: 0.5
+        }
+      );
+      observer.observe(portfolioSection);
+    }
+    const portfolio = document.querySelector('#portfolio .flex');
+    if (window.innerWidth < 768 && portfolio) {
+      setTimeout(() => {
+        portfolio.scrollTo({ left: 80, behavior: 'smooth' });
+        setTimeout(() => {
+          portfolio.scrollTo({ left: 0, behavior: 'smooth' });
+        }, 1000);
+      }, 1000);
+    }
     const toggle = document.getElementById('menu-toggle');
     const menu = document.getElementById('mobile-menu');
 
