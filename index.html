@@ -85,7 +85,7 @@
       <li><a href="#contacts" class="hover:text-gray-300">Контакты</a></li>
     </ul>
   </nav>
-    <div class="md:hidden">
+    <div class="md:hidden block absolute right-4 top-4">
       <button id="menu-toggle" class="text-white focus:outline-none">
         <i class="fas fa-bars text-2xl"></i>
       </button>
@@ -99,125 +99,58 @@
   </div>
   <script>
 document.addEventListener('DOMContentLoaded', function () {
-    const portfolioSection = document.querySelector('#portfolio');
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
     toggle.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
+  }
 
-    let lastScrollTop = 0;
-    window.addEventListener("scroll", function () {
-      let st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st > lastScrollTop) {
-        menu.classList.add("hidden");
-      }
-      lastScrollTop = st <= 0 ? 0 : st;
-    }, false);
-    const portfolio = document.querySelector('#portfolio .flex');
-
-    function triggerSwipeAnimation() {
-      if (window.innerWidth < 768 && portfolio) {
-        portfolio.scrollTo({ left: 60, behavior: 'smooth' });
-        setTimeout(() => {
-          portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 1000);
-      }
+  let lastScrollTop = 0;
+  window.addEventListener("scroll", function () {
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    if (st > lastScrollTop) {
+      menu.classList.add("hidden");
     }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
 
-    // Intersection observer for swipe hint
-    if (window.innerWidth < 768 && portfolioSection && portfolio) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              triggerSwipeAnimation();
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0.5
-        }
-      );
-      observer.observe(portfolioSection);
-    }
-
-    const links = document.querySelectorAll('a[href="#portfolio"]');
-    links.forEach(link => link.addEventListener('click', () => {
-      setTimeout(() => {
-        triggerSwipeAnimation();
-      }, 600);
-    }));
-    const portfolioSection = document.querySelector('#portfolio');
-    const portfolio = document.querySelector('#portfolio .flex');
-    const links = document.querySelectorAll('a[href="#portfolio"]');
-    links.forEach(link => link.addEventListener('click', () => {
-      setTimeout(() => {
-        if (window.innerWidth < 768 && portfolio) {
-          portfolio.scrollTo({ left: 80, behavior: 'smooth' });
-          setTimeout(() => {
-            portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-          }, 1000);
-        }
-      }, 600);
-    }));
-
-    if (window.innerWidth < 768 && portfolioSection && portfolio) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              portfolio.scrollTo({ left: 60, behavior: 'smooth' });
-              setTimeout(() => {
-                portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-              }, 1000);
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0.5
-        }
-      );
-      observer.observe(portfolioSection);
-    }
-    const portfolio = document.querySelector('#portfolio .flex');
+  const portfolio = document.querySelector('#portfolio .flex');
+  const portfolioSection = document.querySelector('#portfolio');
+  function triggerSwipeAnimation() {
     if (window.innerWidth < 768 && portfolio) {
+      portfolio.scrollTo({ left: 60, behavior: 'smooth' });
       setTimeout(() => {
-        portfolio.scrollTo({ left: 80, behavior: 'smooth' });
-        setTimeout(() => {
-          portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 1000);
+        portfolio.scrollTo({ left: 0, behavior: 'smooth' });
       }, 1000);
     }
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
+  }
 
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-
-    let lastScrollTop = 0;
-    window.addEventListener("scroll", function () {
-      let st = window.pageYOffset || document.documentElement.scrollTop;
-      if (st > lastScrollTop) {
-        menu.classList.add("hidden");
+  if (portfolioSection && portfolio && window.innerWidth < 768) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerSwipeAnimation();
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.5
       }
-      lastScrollTop = st <= 0 ? 0 : st;
-    }, false);
+    );
+    observer.observe(portfolioSection);
+  }
 
-    const portfolio = document.querySelector('#portfolio .flex');
-    if (window.innerWidth < 768 && portfolio) {
-      setTimeout(() => {
-        portfolio.scrollTo({ left: 60, behavior: 'smooth' });
-        setTimeout(() => {
-          portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 1000);
-      }, 800);
-    }
-  });
+  const links = document.querySelectorAll('a[href="#portfolio"]');
+  links.forEach(link => link.addEventListener('click', () => {
+    setTimeout(() => {
+      triggerSwipeAnimation();
+    }, 600);
+  }));
+});
 </script>
 </header>
 
