@@ -98,8 +98,23 @@
     <a href="#contacts" class="block hover:text-gray-300">Контакты</a>
   </div>
   <script>
-  document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', function () {
     const portfolioSection = document.querySelector('#portfolio');
+    const toggle = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    let lastScrollTop = 0;
+    window.addEventListener("scroll", function () {
+      let st = window.pageYOffset || document.documentElement.scrollTop;
+      if (st > lastScrollTop) {
+        menu.classList.add("hidden");
+      }
+      lastScrollTop = st <= 0 ? 0 : st;
+    }, false);
     const portfolio = document.querySelector('#portfolio .flex');
 
     function triggerSwipeAnimation() {
@@ -305,7 +320,7 @@
       <p>💛 <strong>Главное — уважение:</strong> Я за комфортную, лёгкую и уважительную атмосферу на съёмке. Юмор, поддержка, взаимное “давай кайфанём” — всегда приветствуются!</p>
             <p>Я не просто прихожу на съёмку — я прихожу с готовым образом. Макияж и причёски создаю сама: чувствую, что подходит именно под идею съёмки.</p>
       <p>Прошла обучение у топ-визажиста <a href="https://instagram.com/mikhailova_g" target="_blank" class="text-white underline hover:text-gray-300">Гульназ Михайлова</a> — и теперь уверенно работаю с разными образами: от минималистичной натуральности до ярких стрелок.</p>
-      $1<br>Если вы на одной волне — welcome по контактам ниже! Всегда открыта к интересным проектам и новым знакомствам 📩</p>
+      Если вы на одной волне — welcome по контактам ниже! Всегда открыта к интересным проектам и новым знакомствам 📩</p>
     </blockquote>
   </div>
 </section>
