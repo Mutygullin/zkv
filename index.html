@@ -366,6 +366,33 @@ document.addEventListener('DOMContentLoaded', function () {
       setTimeout(() => triggerSwipeHint(), 1000);
     });
   });
+
+  // Обновлённая анимация-подсказка для раздела Портфолио
+  function triggerSwipeHint() {
+    const wrapper = document.getElementById('portfolio-wrapper');
+    if (window.innerWidth < 768 && wrapper) {
+      wrapper.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        wrapper.scrollTo({ left: 120, behavior: 'smooth' });
+      }, 700);
+      setTimeout(() => {
+        wrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 2500);
+    }
+  }
+
+  const portfolioSection = document.getElementById('portfolio');
+
+  if (portfolioSection) {
+    portfolioSection.addEventListener('mouseenter', triggerSwipeHint);
+    portfolioSection.addEventListener('touchstart', triggerSwipeHint);
+  }
+
+  document.querySelectorAll('a[href="#portfolio"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => triggerSwipeHint(), 1000);
+    });
+  });
 </script>
 </body>
 </html>
