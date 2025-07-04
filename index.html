@@ -11,111 +11,125 @@
 </head>
 <body class="bg-[#060504] text-white font-[Manrope] scroll-smooth">
 
-<!-- Контент страницы восстановлен -->
+<header class="fixed top-0 left-0 w-full z-50 bg-transparent md:bg-black md:bg-opacity-70 md:backdrop-blur-sm">
+  <div class="max-w-6xl mx-auto flex justify-between items-center p-4">
+    <a href="#" class="text-2xl font-bold">ZKV</a>
+    <nav class="hidden md:flex gap-8">
+      <a href="#about" class="hover:text-gray-300">Обо мне</a>
+      <a href="#portfolio" class="hover:text-gray-300">Портфолио</a>
+      <a href="#collaboration" class="hover:text-gray-300">Сотрудничество</a>
+      <a href="#contact" class="hover:text-gray-300">Контакты</a>
+    </nav>
+    <div class="md:hidden fixed top-4 left-4 z-50">
+      <button id="menu-toggle" class="text-white w-10 h-10 bg-gray-800 bg-opacity-80 rounded-md flex items-center justify-center">
+        <i class="fas fa-bars text-xl"></i>
+      </button>
+    </div>
+    <div id="mobile-menu" class="md:hidden hidden flex-col bg-gray-800 bg-opacity-90 rounded-md mt-2 text-white p-2 space-y-2 text-left absolute top-16 left-4 w-44 z-40">
+      <a href="#about">Обо мне</a>
+      <a href="#portfolio">Портфолио</a>
+      <a href="#collaboration">Сотрудничество</a>
+      <a href="#contact">Контакты</a>
+    </div>
+  </div>
+</header>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const toggle = document.getElementById('menu-toggle');
-    const menu = document.getElementById('mobile-menu');
-    if (toggle && menu) {
-      toggle.addEventListener('click', () => {
-        menu.classList.toggle('hidden');
-      });
-    }
+<section class="relative flex items-center justify-center h-[100vh] text-center">
+  <video autoplay muted loop playsinline class="absolute w-full h-full object-cover hidden sm:block">
+    <source src="https://kamila-zkv.my1.ru/img/background.mp4" type="video/mp4">
+  </video>
+  <img src="https://kamila-zkv.my1.ru/img/background.jpg" alt="Background" class="absolute w-full h-full object-cover block sm:hidden">
+  <div class="relative z-20 max-w-6xl mx-auto flex flex-col items-center gap-4 px-4 sm:px-6 pt-2 sm:pt-16 text-white text-center justify-center min-h-[50vh] mt-[-220px]">
+    <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold tracking-tight leading-tight">Камила Закирова</h1>
+    <p class="text-base sm:text-lg text-gray-300">Профессиональная фотомодель. Эстетика. Стиль. Эмоции.</p>
+  </div>
+</section>
 
-    let lastScrollTop = 0;
-    window.addEventListener("scroll", function () {
-      let st = window.pageYOffset || document.documentElement.scrollTop;
-      if (menu && !menu.classList.contains("hidden")) {
-        menu.classList.add("hidden");
-      }
-      lastScrollTop = st <= 0 ? 0 : st;
-    }, false);
+<section id="about" class="bg-[#060504] py-20 px-6">
+  <div class="max-w-6xl mx-auto flex flex-col md:flex-row gap-10 items-center">
+    <div class="md:w-1/2">
+      <img src="https://kamila-zkv.my1.ru/img/profile.webp" alt="Камила Закирова" class="rounded-lg shadow-lg w-full object-cover">
+    </div>
+    <div class="md:w-1/2 text-left text-gray-300">
+      <h2 class="text-3xl font-bold text-white mb-4">Обо мне</h2>
+      <p class="mb-4">Я — Камила Закирова, модель из города Уфа с опытом в fashion, beauty и коммерческих съёмках. Умею передавать образы, настроение и атмосферу через движение и взгляд. Люблю чистоту кадра и лёгкость на площадке.</p>
+      <ul class="text-sm leading-relaxed space-y-1">
+        <li><strong>Рост:</strong> 173 см</li>
+        <li><strong>Вес:</strong> 55 кг</li>
+        <li><strong>Размер одежды:</strong> XS</li>
+        <li><strong>Размер обуви:</strong> 38</li>
+        <li><strong>Цвет глаз:</strong> голубые</li>
+        <li><strong>Цвет волос:</strong> русые (Airtouch)</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-    const portfolio = document.querySelector('#portfolio-wrapper');
-    const portfolioSection = document.querySelector('#portfolio');
-    function triggerSwipeAnimation() {
-  if (window.innerWidth < 768 && portfolio) {
-    portfolio.scrollTo({ left: 0, behavior: 'auto' });
-    setTimeout(() => {
-      portfolio.scrollTo({ left: 100, behavior: 'smooth' });
-    }, 500);
-    setTimeout(() => {
-      portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-    }, 1500);
-  }
-});
-        setTimeout(() => {
-          portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-        }, 1000);
-      }
-    }
+<section id="portfolio" class="bg-black py-20 px-6 text-center">
+  <h2 class="text-3xl font-bold mb-6">Портфолио</h2>
+  <div id="portfolio-wrapper" class="flex flex-nowrap overflow-x-auto scroll-smooth snap-x snap-mandatory md:grid md:grid-cols-3 gap-6 max-w-6xl mx-auto px-4">
+    <a href="#" class="group block flex-shrink-0 w-96 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio1.webp" alt="Портфолио 1" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="#" class="group block flex-shrink-0 w-96 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio2.webp" alt="Портфолио 2" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="#" class="group block flex-shrink-0 w-96 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio3.webp" alt="Портфолио 3" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="#" class="group block flex-shrink-0 w-96 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio4.webp" alt="Портфолио 4" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="#" class="group block flex-shrink-0 w-96 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio5.webp" alt="Портфолио 5" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+    <a href="#" class="group block flex-shrink-0 w-96 snap-center">
+      <img src="https://kamila-zkv.my1.ru/img/portfolio/portfolio6.webp" alt="Портфолио 6" class="w-full h-[57vh] object-contain scale-90 rounded-md shadow-md group-hover:scale-105 transition-transform duration-300">
+    </a>
+  </div>
+  <div class="w-full flex justify-center mt-8">
+    <a href="#" class="inline-block px-6 py-3 bg-white text-black font-semibold rounded-full hover:bg-gray-200 transition">Смотреть все проекты</a>
+  </div>
+</section>
 
-    if (portfolioSection && portfolio && window.innerWidth < 768) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              triggerSwipeAnimation();
-            }
-          });
-        },
-        {
-          root: null,
-          threshold: 0.5
-        }
-      );
-      observer.observe(portfolioSection);
-    }
+<section id="collaboration" class="bg-[#121212] py-20 px-6 text-left">
+  <div class="max-w-3xl mx-auto">
+    <h2 class="text-3xl font-bold text-white mb-6">Сотрудничество</h2>
+    <blockquote class="bg-[#1c1c1c] p-6 rounded-lg border-l-4 border-white text-gray-300 space-y-4">
+      <p>💌 Немного про съёмки и как мы можем поработать вместе:</p>
+      <p>Очень рада каждому новому проекту и классным людям, с которыми судьба сводит по работе. Чтобы всё прошло легко и приятно — вот несколько моментов, которые обычно обсуждаем заранее:</p>
+      <p>📅 <strong>Бронирование даты:</strong> бронируем день заранее, после финального “да”.</p>
+      <p>📌 <strong>ТЗ и референсы:</strong> пишите, что за съёмка, что нужно передать (настроение, образы), будет ли стилист, визажист, где снимаем и во сколько начинаем.</p>
+      <p>💸 <strong>Оплата:</strong> почасово или за проект — обсуждается; оплату беру после проделанной работы.</p>
+      <p>📲 <strong>Где будут фото/видео:</strong> Instagram, реклама, сайт и т.д. Коммерческие условия — отдельно и прозрачно.</p>
+      <p>🚗 <strong>Локации и переезды:</strong> трансфер и жильё (при необходимости) берёт на себя заказчик.</p>
+      <p>💛 <strong>Главное — уважение:</strong> я за комфортную, лёгкую и уважительную атмосферу на съёмке.</p>
+      <p>Если вы на одной волне — welcome по контактам ниже!</p>
+    </blockquote>
+  </div>
+</section>
 
-    const links = document.querySelectorAll('a[href="#portfolio"]');
-    links.forEach(link => link.addEventListener('click', () => {
-      setTimeout(() => {
-        triggerSwipeAnimation();
-      }, 600);
-    }));
-  });
-</script>
+<section id="contact" class="bg-black py-20 px-6 text-center">
+  <div class="max-w-2xl mx-auto">
+    <h2 class="text-3xl font-bold mb-6">Контакты</h2>
+    <div class="flex flex-col sm:flex-row justify-center gap-4">
+      <a href="https://t.me/kamila_zkv" class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition">
+        <i class="fab fa-telegram"></i> Telegram
+      </a>
+      <a href="https://wa.me/79961066754" class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition">
+        <i class="fab fa-whatsapp"></i> WhatsApp
+      </a>
+      <a href="https://instagram.com/kamila_zkv" class="flex items-center justify-center gap-2 px-4 py-2 bg-white text-black rounded-full hover:bg-gray-200 transition">
+        <i class="fab fa-instagram"></i> Instagram
+      </a>
+    </div>
+  </div>
+</section>
 
-<style>
-@media (max-width: 768px) {
-  #portfolio-wrapper {
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-  }
-  #portfolio-wrapper a {
-    flex: 0 0 92%;
-    scroll-snap-align: start;
-  }
-  #portfolio-wrapper img {
-    height: 75vh;
-    transform: scale(1);
-  }
-}
-@media (max-width: 1024px) and (orientation: landscape) {
-  #portfolio-wrapper {
-    display: grid !important;
-    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
-    gap: 1.5rem;
-    overflow-x: visible !important;
-  }
-  #portfolio-wrapper a {
-    flex: none !important;
-    scroll-snap-align: unset !important;
-  }
-  #portfolio-wrapper img {
-    height: 57vh !important;
-    max-height: none;
-    transform: scale(0.9);
-  }
-}
-  #portfolio-wrapper img {
-    height: 125vh !important;
-    max-height: none;
-  }
-}
-</style>
+<footer class="text-center text-sm text-gray-500 py-6">
+  &copy; 2025 Камила Закирова. Все права защищены.
+</footer>
 
+<!-- Скрипт и стили (анимация, карусель и адаптив) будут добавлены после основного контента -->
 </body>
 </html>
