@@ -261,5 +261,34 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 });
 </script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+
+    // Закрывать меню при нажатии на ссылку
+    document.querySelectorAll('#mobile-menu a').forEach(link => {
+      link.addEventListener('click', () => {
+        menu.classList.add('hidden');
+      });
+    });
+
+    // Закрывать меню при скролле
+    let lastScrollTop = 0;
+    window.addEventListener('scroll', function () {
+      let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      if (scrollTop !== lastScrollTop) {
+        menu.classList.add('hidden');
+        lastScrollTop = scrollTop;
+      }
+    });
+  }
+});
+</script>
 </body>
 </html>
