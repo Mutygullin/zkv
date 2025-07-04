@@ -146,11 +146,20 @@ document.addEventListener('DOMContentLoaded', function () {
     lastScrollTop = st <= 0 ? 0 : st;
   }, false);
 
-  const portfolio = document.querySelector('#portfolio .flex');
+  const portfolio = document.querySelector('#portfolio-wrapper');
   const portfolioSection = document.querySelector('#portfolio');
   function triggerSwipeAnimation() {
-    if (window.innerWidth < 768 && portfolio) {
-      portfolio.scrollTo({ left: 60, behavior: 'smooth' });
+  const portfolio = document.querySelector('#portfolio-wrapper');
+  if (window.innerWidth < 768 && portfolio) {
+    portfolio.scrollTo({ left: 0, behavior: 'auto' });
+    setTimeout(() => {
+      portfolio.scrollTo({ left: 100, behavior: 'smooth' });
+    }, 300);
+    setTimeout(() => {
+      portfolio.scrollTo({ left: 0, behavior: 'smooth' });
+    }, 1300);
+  }
+});
       setTimeout(() => {
         portfolio.scrollTo({ left: 0, behavior: 'smooth' });
       }, 1000);
