@@ -5,7 +5,68 @@
   <link rel="icon" href="https://kamila-zkv.my1.ru/img/favicon.ico" type="image/x-icon">
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Камила Закирова — фотомодель</title>
-  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.tailwindcss.com">  // Анимация-подсказка при переходе в раздел портфолио
+  const portfolioWrapper = document.getElementById('portfolio-wrapper');
+  const portfolioSection = document.getElementById('portfolio');
+
+  function triggerSwipeHint() {
+    if (window.innerWidth < 768 && portfolioWrapper) {
+      portfolioWrapper.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 100, behavior: 'smooth' });
+      }, 300);
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 1400);
+    }
+  }
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        triggerSwipeHint();
+      }
+    });
+  }, {
+    threshold: 0.4
+  });
+
+  if (portfolioSection) {
+    observer.observe(portfolioSection);
+  }
+
+  document.querySelectorAll('a[href="#portfolio"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => triggerSwipeHint(), 800);
+    });
+  });
+  // Анимация-подсказка в разделе Портфолио на мобильной версии
+  const portfolioWrapper = document.getElementById('portfolio-wrapper');
+  const portfolioSection = document.getElementById('portfolio');
+
+  function triggerSwipeHint() {
+    if (window.innerWidth < 768 && portfolioWrapper) {
+      portfolioWrapper.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 120, behavior: 'smooth' });
+      }, 500);
+      setTimeout(() => {
+        portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 2000);
+    }
+  }
+
+  if (portfolioSection) {
+    portfolioSection.addEventListener('mouseenter', triggerSwipeHint);
+    portfolioSection.addEventListener('touchstart', triggerSwipeHint);
+  }
+
+  document.querySelectorAll('a[href="#portfolio"]').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(() => triggerSwipeHint(), 800);
+    });
+  });
+</script>
   <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <style>
