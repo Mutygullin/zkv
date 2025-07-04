@@ -120,8 +120,8 @@ document.addEventListener('DOMContentLoaded', function () {
   let lastScrollTop = 0;
   window.addEventListener("scroll", function () {
     let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (st > lastScrollTop) {
-      if (menu) menu.classList.add("hidden");
+    if (menu && !menu.classList.contains("hidden")) {
+      menu.classList.add("hidden");
     }
     lastScrollTop = st <= 0 ? 0 : st;
   }, false);
