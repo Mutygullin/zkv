@@ -127,66 +127,7 @@
     <a href="#cooperation" class="block hover:text-gray-300">Сотрудничество</a>
     <a href="#contacts" class="block hover:text-gray-300">Контакты</a>
   </div>
-  <script>
-document.addEventListener('DOMContentLoaded', function () {
-  const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  if (toggle && menu) {
-    toggle.addEventListener('click', () => {
-      menu.classList.toggle('hidden');
-    });
-  }
-
-  let lastScrollTop = 0;
-  window.addEventListener("scroll", function () {
-    let st = window.pageYOffset || document.documentElement.scrollTop;
-    if (menu && !menu.classList.contains("hidden")) {
-      menu.classList.add("hidden");
-    }
-    lastScrollTop = st <= 0 ? 0 : st;
-  }, false);
-
-  function triggerSwipeAnimation() {
-    const portfolio = document.querySelector('#portfolio-wrapper');
-    if (window.innerWidth < 768 && portfolio) {
-      portfolio.scrollTo({ left: 0, behavior: 'auto' });
-      setTimeout(() => {
-        portfolio.scrollTo({ left: 120, behavior: 'smooth' });
-      }, 300);
-      setTimeout(() => {
-        portfolio.scrollTo({ left: 0, behavior: 'smooth' });
-      }, 1300);
-    }
-  }
-
-  const portfolio = document.querySelector('#portfolio-wrapper');
-  const portfolioSection = document.querySelector('#portfolio');
-
-  if (portfolioSection && portfolio && window.innerWidth < 768) {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            triggerSwipeAnimation();
-          }
-        });
-      },
-      {
-        root: null,
-        threshold: 0.5
-      }
-    );
-    observer.observe(portfolioSection);
-  }
-
-  const links = document.querySelectorAll('a[href="#portfolio"]');
-  links.forEach(link => link.addEventListener('click', () => {
-    setTimeout(() => {
-      triggerSwipeAnimation();
-    }, 600);
-  }));
-});
-</script>
+  
 </header>
 
 <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-36 sm:pt-24">
@@ -308,5 +249,65 @@ document.addEventListener('DOMContentLoaded', function () {
   <p>© Камила Закирова, 2025. Все права защищены.</p>
 </footer>
 
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  if (toggle && menu) {
+    toggle.addEventListener('click', () => {
+      menu.classList.toggle('hidden');
+    });
+  }
+
+  let lastScrollTop = 0;
+  window.addEventListener("scroll", function () {
+    let st = window.pageYOffset || document.documentElement.scrollTop;
+    if (menu && !menu.classList.contains("hidden")) {
+      menu.classList.add("hidden");
+    }
+    lastScrollTop = st <= 0 ? 0 : st;
+  }, false);
+
+  function triggerSwipeAnimation() {
+    const portfolio = document.querySelector('#portfolio-wrapper');
+    if (window.innerWidth < 768 && portfolio) {
+      portfolio.scrollTo({ left: 0, behavior: 'auto' });
+      setTimeout(() => {
+        portfolio.scrollTo({ left: 120, behavior: 'smooth' });
+      }, 300);
+      setTimeout(() => {
+        portfolio.scrollTo({ left: 0, behavior: 'smooth' });
+      }, 1300);
+    }
+  }
+
+  const portfolio = document.querySelector('#portfolio-wrapper');
+  const portfolioSection = document.querySelector('#portfolio');
+
+  if (portfolioSection && portfolio && window.innerWidth < 768) {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            triggerSwipeAnimation();
+          }
+        });
+      },
+      {
+        root: null,
+        threshold: 0.5
+      }
+    );
+    observer.observe(portfolioSection);
+  }
+
+  const links = document.querySelectorAll('a[href="#portfolio"]');
+  links.forEach(link => link.addEventListener('click', () => {
+    setTimeout(() => {
+      triggerSwipeAnimation();
+    }, 600);
+  }));
+});
+</script>
 </body>
 </html>
