@@ -266,19 +266,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const menu = document.getElementById('mobile-menu');
 
   if (toggle && menu) {
-    // Открытие/закрытие меню
     toggle.addEventListener('click', () => {
       menu.classList.toggle('hidden');
     });
 
-    // Закрытие меню при клике на ссылку
     document.querySelectorAll('#mobile-menu a').forEach(link => {
       link.addEventListener('click', () => {
         menu.classList.add('hidden');
       });
     });
 
-    // Закрытие меню при скролле
     let lastScrollTop = 0;
     window.addEventListener('scroll', function () {
       let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
@@ -295,26 +292,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function triggerSwipeHint() {
     if (window.innerWidth < 768 && portfolioWrapper) {
-      // Сброс позиции
       portfolioWrapper.scrollTo({ left: 0, behavior: 'auto' });
-      // Прокрутка немного вправо
       setTimeout(() => {
         portfolioWrapper.scrollTo({ left: 100, behavior: 'smooth' });
       }, 500);
-      // Возврат назад
       setTimeout(() => {
         portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
       }, 1800);
-    }
-  });
-      setTimeout(() => {
-        if (portfolioWrapper.scrollLeft < 50) {
-          portfolioWrapper.scrollTo({ left: 120, behavior: 'smooth' });
-          setTimeout(() => {
-            portfolioWrapper.scrollTo({ left: 0, behavior: 'smooth' });
-          }, 2500);
-        }
-      }, 700);
     }
   }
 
