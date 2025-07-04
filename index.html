@@ -35,6 +35,11 @@
     width: 100%;
     align-items: center;
   }
+  #menu-toggle,
+  #mobile-menu {
+    display: none !important;
+  }
+}
 }
   
 }
@@ -90,13 +95,13 @@
       <li><a href="#cooperation" class="hover:text-gray-300">Сотрудничество</a></li>
       <li><a href="#contacts" class="hover:text-gray-300">Контакты</a></li>
     </ul>
-  <div class="md:hidden block absolute right-4 top-4">
-      <button id="menu-toggle" class="text-white focus:outline-none">
-        <i class="fas fa-bars text-2xl"></i>
-      </button>
-    </div>
+  <div class="md:hidden absolute left-4 top-4">
+  <button id="menu-toggle" class="text-white focus:outline-none w-10 h-10 bg-black bg-opacity-70 rounded-md flex items-center justify-center">
+    <i class="fas fa-bars text-xl"></i>
+  </button>
+</div>
   </nav>
-  <div id="mobile-menu" class="md:hidden hidden flex-col bg-black bg-opacity-90 rounded-md mt-2 text-white p-2 space-y-2 text-left absolute top-16 left-4 w-fit z-40">
+  <div id="mobile-menu" class="md:hidden hidden flex-col bg-black bg-opacity-90 rounded-md mt-2 text-white p-2 space-y-2 text-left absolute top-16 left-4 w-44 z-40"">
     <a href="#about" class="block hover:text-gray-300">Обо мне</a>
     <a href="#portfolio" class="block hover:text-gray-300">Портфолио</a>
     <a href="#cooperation" class="block hover:text-gray-300">Сотрудничество</a>
